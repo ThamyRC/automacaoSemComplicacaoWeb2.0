@@ -25,12 +25,20 @@ public class testeWeb {
 
     @Test
     public void primeiroTeste (){
-        String xpathTitulo = "/html/body/div/div/div/div/div/section[2]/div[3]/div/div/div/div/div[1]/div/h4";
+        String xpathTitulo = "//section[2]//h4";
         WebElement txtTitulo = driver.findElement(By.xpath(xpathTitulo));
         String titulo = txtTitulo.getText();
         assertEquals("Porque Tempo É Conhecimento",titulo);
+    }
 
-
+    @Test
+    public void segundoTeste(){
+        String xpathBotao = "//section[2]/div[3]//a";
+        WebElement btnTitulo = driver.findElement(By.xpath(xpathBotao));
+        btnTitulo.click();
+        String xpathTitulo = "//*[@id=\"block-216\"]//div[1]/div/h3";
+        WebElement h3Titulo = driver.findElement(By.xpath(xpathTitulo));
+        assertEquals("Automação Sem Complicação Web 2.0", h3Titulo.getText());
     }
 
     @After
