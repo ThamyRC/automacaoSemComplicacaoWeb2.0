@@ -3,6 +3,7 @@ package br.com.chronosAcademy.steps;
 import br.com.chronosAcademy.core.Driver;
 import br.com.chronosAcademy.enums.Browser;
 import br.com.chronosAcademy.pages.LoginPage;
+import br.com.chronosAcademy.pages.NewAccountPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
@@ -30,6 +31,8 @@ public class LoginSteps {
         Driver.getDriver().get("https://www.advantageonlineshopping.com/");
         loginPage = new LoginPage();
         loginPage.clickBtnLogin();
+        loginPage.visibilityOfBtnFechar();
+        loginPage.aguardaLoader();
     }
 
     @Quando("for realizado um clique fora da modal")
@@ -41,16 +44,14 @@ public class LoginSteps {
     public void aJanelaModalDeveSerFechada() throws Exception {
         try {
             loginPage.invisiblityOfBtnBechar();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new Exception("A janela modal nao foi fechada");
         }
-
     }
 
     @Quando("for realizado um clique no icone de fechar")
     public void forRealizadoUmCliqueNoIconeDeFechar() {
         loginPage.clickBtnFechar();
-
     }
 
     @Quando("for realizado um clique no Link Create New Account")
@@ -60,7 +61,8 @@ public class LoginSteps {
 
     @Entao("a pagina Create New Account deve ser exibida")
     public void aPaginaCreateNewAccountDeveSerExibida() {
-
+        NewAccountPage newAccountPage = new NewAccountPage();
+        Assert.assertEquals("CREATE ACCOUNT", newAccountPage.getTextNewAccount());
     }
 
     @Quando("os campos de login forem preenchidos da seguinte forma")
@@ -72,23 +74,19 @@ public class LoginSteps {
         loginPage.setinpUserName(username);
         loginPage.setinpPassword(password);
         if (remember) loginPage.clickinpRemember();
-
     }
 
     @Quando("for realizado um clique no botao sign in")
     public void forRealizadoUmCliqueNoBotaoSignIn() {
         loginPage.clickbtnSignIn();
-
     }
 
     @Entao("deve ser possivel logar no sistema")
     public void deveSerPossivelLogarNoSistema() {
-
     }
 
     @Entao("o sistema deve exibir uma mensagem de erro")
     public void oSistemaDeveExibirUmaMensagemDeErro() {
-
     }
 
     @Entao("o botao sing in deve permanecer desabilitado")
