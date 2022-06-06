@@ -6,18 +6,18 @@ import org.openqa.selenium.support.FindBy;
 public class LoginMap {
     @FindBy(css = "#menuUserLink")
     public WebElement btnLogin;
-    @FindBy(css = "closeBtn")
+    @FindBy(css = ".closeBtn")
     public WebElement btnFechar;
     @FindBy(css = ".PopUp")
     public WebElement divFecharModal;
-    @FindBy(css = "username")
+    @FindBy(css = "*[name='username']")
     public WebElement inpUserName;
-    @FindBy()
+    @FindBy(css = "*[name='password']")
     public WebElement inpPassword;
-    @FindBy()
+    @FindBy(css = "#sign_in_btnundefined")
     public WebElement btnSignIn;
-    @FindBy()
+    @FindBy(css = "*[name='remember_me']")
     public WebElement inpRemember;
-    @FindBy()
+    @FindBy(linkText = "CREATE NEW ACCOUNT")
     public WebElement linkCreateAccount;
 }
