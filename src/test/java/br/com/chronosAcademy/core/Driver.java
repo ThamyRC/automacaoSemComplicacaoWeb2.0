@@ -43,9 +43,15 @@ public class Driver {
     public static void visibilityOf(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     public static void invisibilityOf(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
+
+    public static void attributeChange(WebElement element, String attribute, String value) {
+        wait.until(ExpectedConditions.attributeContains(element, attribute, value));
+    }
+
     public static WebDriver getDriver() {
         return driver;
     }

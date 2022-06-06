@@ -26,11 +26,15 @@ public class LoginPage {
     }
 
     public void setinpUserName(String username) {
-        loginMap.inpUserName.sendKeys(username);
+        if (username != null) {
+            loginMap.inpUserName.sendKeys(username);
+        }
     }
 
     public void setinpPassword(String password) {
-        loginMap.inpPassword.sendKeys(password);
+        if (password != null) {
+            loginMap.inpPassword.sendKeys(password);
+        }
     }
 
     public void clickbtnSignIn() {
@@ -56,4 +60,9 @@ public class LoginPage {
     public void invisiblityOfBtnBechar() {
         Driver.invisibilityOf(loginMap.btnFechar);
     }
+
+    public void aguardaLoader() {
+        Driver.attributeChange(loginMap.divLoader, "display", "none");
+    }
+
 }
