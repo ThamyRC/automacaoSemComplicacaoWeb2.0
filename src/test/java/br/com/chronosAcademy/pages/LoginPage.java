@@ -7,44 +7,53 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
     LoginMap loginMap;
 
-    public LoginPage(){
+    public LoginPage() {
         loginMap = new LoginMap();
         PageFactory.initElements(Driver.getDriver(), loginMap);
     }
 
-    public void clickBtnLogin(){
+    public void clickBtnLogin() {
+        Driver.visibilityOf(loginMap.btnLogin);
         loginMap.btnLogin.click();
     }
 
-    public void clickBtnFechar(){
+    public void clickBtnFechar() {
         loginMap.btnFechar.click();
     }
 
-    public void clickdivFecharModal(){
+    public void clickdivFecharModal() {
         loginMap.divFecharModal.click();
     }
 
-    public void setinpUserName(String username){
+    public void setinpUserName(String username) {
         loginMap.inpUserName.sendKeys(username);
     }
 
-    public void setinpPassword(String password){
+    public void setinpPassword(String password) {
         loginMap.inpPassword.sendKeys(password);
     }
 
-    public void clickbtnSignIn(){
+    public void clickbtnSignIn() {
         loginMap.btnSignIn.click();
     }
 
-    public boolean isbtnSignIn(){
+    public boolean isbtnSignIn() {
         return loginMap.btnSignIn.isEnabled();
     }
 
-    public void clickinpRemember(){
+    public void clickinpRemember() {
         loginMap.inpRemember.click();
     }
 
-    public void clicklinkCreateAccount(){
+    public void clicklinkCreateAccount() {
         loginMap.linkCreateAccount.click();
+    }
+
+    public void visibilityOfBtnFechar() {
+        Driver.visibilityOf(loginMap.btnFechar);
+    }
+
+    public void invisiblityOfBtnBechar() {
+        Driver.invisibilityOf(loginMap.btnFechar);
     }
 }
