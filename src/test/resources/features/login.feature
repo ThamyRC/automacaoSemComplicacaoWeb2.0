@@ -19,7 +19,7 @@ Funcionalidade: Login
     Quando for realizado um clique no Link Create New Account
     Entao a pagina Create New Account deve ser exibida
 
-    @loginComSucesso
+  @loginComSucesso
   Esquema do Cenario: Realizar login com <identificacao>
     Quando os campos de login forem preenchidos da seguinte forma
       | login    | <login>    |
@@ -29,10 +29,10 @@ Funcionalidade: Login
     Entao deve ser possivel logar no sistema
     Exemplos:
       | identificacao       | login   | password | remember |
-      | todos os campos     | chronos | senha    | true     |
-      | campos obrigatorios | chronos | senha    | false    |
+      | todos os campos     | chronos | Senha123 | true     |
+      | campos obrigatorios | chronos | Senha123 | false    |
 
-    @camposInvalidos
+  @loginInvalidos
   Esquema do Cenario: Realizar login com <identificacao>
     Quando os campos de login forem preenchidos da seguinte forma
       | login    | <login>    |
@@ -42,7 +42,7 @@ Funcionalidade: Login
     Entao o sistema deve exibir uma mensagem de erro
     Exemplos:
       | identificacao    | login    | password | remember |
-      | usuario invalido | invalido | senha    | true     |
+      | usuario invalido | invalido | Senha123 | true     |
       | senha invalida   | chronos  | invalido | false    |
 
   @dadosEmBranco
@@ -55,5 +55,5 @@ Funcionalidade: Login
     Entao o botao sing in deve permanecer desabilitado
     Exemplos:
       | identificacao     | login   | password | remember |
-      | usuario em branco |         | senha    | true     |
+      | usuario em branco |         | Senha123 | true     |
       | senha em branco   | chronos |          | false    |
