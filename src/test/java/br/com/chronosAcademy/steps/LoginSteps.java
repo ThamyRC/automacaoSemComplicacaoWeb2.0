@@ -10,6 +10,7 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.Map;
 

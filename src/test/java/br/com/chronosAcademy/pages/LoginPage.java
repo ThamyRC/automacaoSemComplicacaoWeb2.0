@@ -2,6 +2,7 @@ package br.com.chronosAcademy.pages;
 
 import br.com.chronosAcademy.core.Driver;
 import br.com.chronosAcademy.maps.LoginMap;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
@@ -22,7 +23,8 @@ public class LoginPage {
     }
 
     public void clickdivFecharModal() {
-        loginMap.divFecharModal.click();
+        JavascriptExecutor executor = (JavascriptExecutor)Driver.getDriver();
+        executor.executeScript("arguments[0].click();", loginMap.divFecharModal);
     }
 
     public void setinpUserName(String username) {
