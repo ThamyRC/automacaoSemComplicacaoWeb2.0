@@ -6,12 +6,14 @@ import br.com.chronosAcademy.pages.LoginPage;
 import br.com.chronosAcademy.pages.NewAccountPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.io.IOException;
 import java.util.Map;
 
 public class LoginSteps {
@@ -19,17 +21,21 @@ public class LoginSteps {
     String username;
 
     @Before
-    public void iniciaNavegador() {
+    public void iniciaNavegador(Scenario cenario) {
         new Driver(Browser.CHROME);
+        Driver.setNomeCenario(cenario.getName());
+        Driver.criaDiretorio();
     }
 
     @After
-    public void fechaNavegador() {
+    public void fechaNavegador(Scenario cenario) {
         Driver.getDriver().quit();
+        System.out.println(Driver.getNomeCenario()+" - "+cenario.getStatus());
+        System.out.println(cenario.isFailed());
     }
 
     @Dado("que a modal esteja sendo exibida")
-    public void queAModalEstejaSendoExibida() {
+    public void queAModalEstejaSendoExibida() throws IOException {
         Driver.getDriver().get("https://www.advantageonlineshopping.com/");
         loginPage = new LoginPage();
         loginPage.clickBtnLogin();
