@@ -28,9 +28,9 @@ Funcionalidade: Login
     Quando for realizado um clique no botao sign in
     Entao deve ser possivel logar no sistema
     Exemplos:
-      | identificacao       | login   | password | remember |
-      | todos os campos     | chronos | Senha123 | true     |
-      | campos obrigatorios | chronos | Senha123 | false    |
+      | identificacao       | login     | password | remember |
+      | todos os campos     | erchronos | Senha123 | true     |
+      | campos obrigatorios | chronos   | Senha123 | false    |
 
   @loginInvalidos
   Esquema do Cenario: Realizar login com <identificacao>
