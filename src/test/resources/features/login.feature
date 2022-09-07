@@ -19,7 +19,7 @@ Funcionalidade: Login
     Quando for realizado um clique no Link Create New Account
     Entao a pagina Create New Account deve ser exibida
 
-  @loginComSucesso
+  @login
   Esquema do Cenario: Realizar login com <identificacao>
     Quando os campos de login forem preenchidos da seguinte forma
       | login    | <login>    |
